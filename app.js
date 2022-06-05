@@ -10,12 +10,12 @@ app.use(express.urlencoded({extended: false}));
 const port = process.env.PORT || 5000
 
 // Status
-app.get('/status', (req, res) => {
+app.get('/api/status', (req, res) => {
   res.json({status: "up"});
 })
 
 // Use publications router 
-app.use('/anime', require('./routes/api/animeApi.js'));
+app.use('/api/anime', require('./routes/api/animeApi.js'));
 
 // Runs the server on the port
 app.listen(port, () => {
