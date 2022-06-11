@@ -1,5 +1,4 @@
-var express = require('express');
-const path = require('path');
+import express from 'express';
 var app = express();
 
 // Body parser
@@ -15,7 +14,7 @@ app.get('/api/status', (req, res) => {
 })
 
 // Use publications router 
-app.use('/api/anime', require('./routes/api/animeApi.js'));
+app.use('/api/anime', require('./routes/api/animeApi.ts'));
 
 // Runs the server on the port
 app.listen(port, () => {
