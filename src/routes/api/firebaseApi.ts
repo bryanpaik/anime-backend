@@ -1,6 +1,7 @@
 import express from 'express';
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB2E9bO32KrB8JO42p_-jdFb_daaStTGHU",
@@ -15,6 +16,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const auth = getAuth(app);
+
 const router = express.Router();
 
 module.exports = router;

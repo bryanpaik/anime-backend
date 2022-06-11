@@ -15,9 +15,7 @@ expressApp.get('/api/status', (req, res) => {
 })
 
 // Use publications router 
-expressApp.use('/api/anime', require('./routes/api/animeApi.ts'));
-
-
+expressApp.use('/api/db', require('./routes/api/firebaseApi.ts'));
 
 // Runs the server on the port
 expressApp.listen(port, () => {
