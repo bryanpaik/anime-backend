@@ -1,5 +1,4 @@
 import express from 'express';
-
 var expressApp = express();
 
 // Body parser
@@ -14,6 +13,9 @@ expressApp.get('/api/status', (req, res) => {
   res.json({status: "up"});
 })
 
+// Use animix router 
+expressApp.use('/api/animix', require('./routes/api/animixApi.ts'));
+
 // Use publications router 
 expressApp.use('/api/db', require('./routes/api/firebaseApi.ts'));
 
@@ -21,4 +23,6 @@ expressApp.use('/api/db', require('./routes/api/firebaseApi.ts'));
 expressApp.listen(port, () => {
   console.log(`Anime web-app listening on port ${port}`)
 })
+
+
 
