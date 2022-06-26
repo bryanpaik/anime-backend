@@ -22,7 +22,6 @@ router.get('/search', async (req: any, res: any) => {
 
 router.get('/getEpisodes', async (req: any, res: any) => {
     const { link } = req.query;
-
     if(!link) {
         return res.status(400).json({ error: "Please provide a link!" });
     }
