@@ -8,8 +8,10 @@ router.get('/search', async (req: any, res: any) => {
         return res.status(400).json({ error: "Please provide an anime name!" });
     }
 
+    console.log(`Searching for ${animeName}`);
     try {
         const anime = await AnimixSearch.search(animeName);
+        console.log("Anime found!");
         return res.status(200).json(anime);
     }
     catch (err) {
@@ -24,8 +26,10 @@ router.get('/getEpisodes', async (req: any, res: any) => {
         return res.status(400).json({ error: "Please provide a link!" });
     }
 
+    console.log(`Getting episodes for ${link}`);
     try {
         const episodes = await AnimixSearch.getEpisodes(link);
+        console.log("Found episodes!");
         return res.status(200).json(episodes);
     }
     catch (err) {
