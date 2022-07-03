@@ -38,4 +38,22 @@ router.get('/getEpisodes', async (req: any, res: any) => {
     
 });
 
+router.get('/apiLink', async (req: any, res: any) => {
+    const { link } = req.query;
+    if(!link) {
+        return res.status(400).json({ error: "Please provide a link!" });
+    }
+
+    console.log(`Getting api link for ${link}`);
+    try {
+        const episodes = await AnimixSearch.getApiLink(link);
+        console.log("Found link!");
+        return res.status(200).json(episodes);
+    }
+    catch (err) {
+        return res.status(500).json({error: err})
+    }
+    
+});
+
 module.exports = router;
