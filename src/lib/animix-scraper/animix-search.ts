@@ -69,6 +69,27 @@ class AnimixSearch {
 
     }
 
+    public static async getApiLink(animePage: string) {
+        const baseUrl = 'https://animixplay.to';
+
+        const browser = await puppeteer.launch({
+            headless: true,
+            slowMo: 0, // slow down by 250ms
+        });
+
+        const page = await browser.newPage();
+        await page.goto(animePage, {waitUntil : 'domcontentloaded'});
+        await page.waitForSelector('.playerpage', {visible: true})
+
+        const apiLink = await page.evaluate(() => {
+            return document.querySelector('#iframecontainer')?.getElementsByTagName('iframe')[0].getAttribute('src');
+        });
+
+        await browser.close();
+
+        return baseUrl + apiLink;
+    }
+
     private static convertString(line: string): string {
         return line.replace(" ", "%20");
     }
