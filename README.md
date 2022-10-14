@@ -1,7 +1,7 @@
 # AnimeBackend
 NodeJS Express server used for anime-frontend
 
-Backend for https://github.com/bryanpaik/anime-frontend, need to match the port here with port in the front end (Currently port 5000)
+Backend for https://github.com/bryanpaik/anime-frontend
 
 ## Setting up for development
 1. Install node: https://nodejs.org/en/download/
