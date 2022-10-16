@@ -9,7 +9,7 @@ class AnimixSearch {
         
         const browser = await puppeteer.launch({
             headless: true,
-            slowMo: 0, // slow down by 250ms
+            slowMo: 50, // slow down by 250ms
         });
 
         const page = await browser.newPage();
