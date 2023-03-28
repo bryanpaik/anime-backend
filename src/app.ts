@@ -14,9 +14,12 @@ expressApp.get('/api/status', (req, res) => {
 });
 
 // Use animix router
-expressApp.use('/api/animix', require('./routes/api/animixApi.ts'));
+// expressApp.use('/api/animix', require('./routes/api/animixApi.ts'));
+
+// Use nyaa router
+expressApp.use('/api/nyaa', require('./routes/api/nyaaApi.ts'));
 
 // Runs the server on the port
 expressApp.listen(port, () => {
-  console.log(`Anime web-app listening on port ${port}`);
+  console.log(`Anime backend listening on port ${port}`);
 });
