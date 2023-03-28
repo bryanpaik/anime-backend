@@ -1,5 +1,6 @@
 import WebTorrent from 'webtorrent';
 
+// Create a worker for this
 class WebTorrentAPI {
     private client = new WebTorrent();
 
